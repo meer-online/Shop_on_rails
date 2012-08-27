@@ -1,0 +1,8 @@
+<div id="hp_header"></div>
+<h1>Catalog</h1>
+
+<%= render 'item' %>
+ <% if session[:login] == 1 %>
+<p><%= link_to 'New item', new_item_path %></p>
+<% end %>
+

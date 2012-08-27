@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @item.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @item.description.html_safe %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @item.category_name %>
+
+</p>
+<p>
+  <b>Price:</b>
+  <%= number_to_currency(@item.price, :unit => "&dollar;") %>
+</p>
+
+<p>
+  <b>Image: </b>
+  <%= image_tag @item.photo.url(:small) %>
+  <!--%= image_tag(@item.image_url) %-->
+</p>
+<div class="events">
+   <% if session[:login] == 1 %>
+       <div class="button"><%= link_to 'Edit', edit_item_path(@item) %></div>
+   
+   <% end %>
+    <div class= "button"><%= link_to 'Back', items_path %></div>
+</div>

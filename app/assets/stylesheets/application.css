@@ -1,0 +1,210 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+body { 
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: black;
+  background: url("http://localhost:3000/images/r-patt.gif") repeat; 
+ /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+
+body, p, ol, ul, td {
+  font: normal small Arial, Verdana, Helvetica, sans-serif;
+  font-size: 12pt;
+}
+
+a { color: maroon; text-decoration: none; }
+a:hover { text-decoration:underline; }
+
+h1
+{
+	font-size: 20pt;
+	margin-top: 25px;
+}
+
+#page
+{
+	margin: auto;
+	width: 1000px;
+	text-align: left;
+	border: solid gray 1px;
+    background-color: white;
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;
+}
+
+
+
+#content 
+{
+	background: white;
+	padding: 1em;
+}
+
+/* Catalog */
+table.catalog
+{
+	border-collapse:collapse;
+}
+.catalog td
+{
+	padding: 8px 8px 8px 8px;
+	vertical-align:top;
+	margin-bottom: 32px;
+	border-bottom: 1px maroon solid;
+}
+.catalog img
+{
+	border: 0;
+	width:120px;
+}
+.title
+{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+.description
+{
+	margin-bottom: 16px;
+}
+.links
+{
+	float: left; 
+	text-align: left;
+}
+.price
+{
+	color: maroon;
+	font-weight: 800;
+	font-size: 14pt;
+	text-align:right;
+}
+
+
+
+/* Cart */
+table.cart
+{
+	border-collapse:collapse;
+}
+.cart td
+{
+	padding: 8px 8px 8px 8px;
+	vertical-align:top;
+	border: 1px maroon solid;
+}
+.cart img
+{
+	border: 0;
+	width:60px;
+}
+.cart .legend
+{
+	font-weight: bold;
+}
+.cart .title
+{
+	font-size: 16px;
+	font-weight:normal;
+}
+.cart .price
+{
+	color: black;
+	font-size: 16px;
+	font-weight:normal;
+}
+.cart .quantity
+{
+	color: black;
+	font-size: 16px;
+	text-align: center;
+}
+.cart .quantity form, .cart .quantity form div
+{
+	display: inline;
+} 
+.cart .total
+{
+	font-weight: bolder;
+	text-transform:uppercase;
+	text-align: right;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}

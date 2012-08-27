@@ -1,0 +1,22 @@
+<fieldset><legend>Log in</legend>
+
+  <%= form_tag sessions_path do %>
+    <div class="field">
+      <%= label_tag :email %> <br />
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %> <br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="field">
+      <%= check_box_tag :remember_me, 1, params[:remember_me] %> <br />
+      <%= label_tag :remember_me %>
+    </div>
+    <div class="actions">
+      <legend class="link-to-other"><%= submit_tag "Log in" %></legend>
+    </div>
+
+  <% end %>
+
+</fieldset>

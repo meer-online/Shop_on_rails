@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Items: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>	
+    <div id="page">
+      <div id="header"> 
+      	<div id="logo"></div>
+      	<div id="slogan">The Architects of Time</div>
+      	<div id="flash_embed">
+            <object data="http://royalwatches.pk/media/flash/tag-heuer-mp4.swf" type="application/x-shockwave-flash">
+               <param name="data" value="http://royalwatches.pk/media/flash/tag-heuer-mp4.swf">
+               <param name="src" value="http://royalwatches.pk/media/flash/tag-heuer-mp4.swf">
+            </object>
+        </div>
+      </div>
+      <div id="nav">
+        <div style="float:left;text-align:left">
+		
+          <%= link_to_unless_current "Home",  :controller => "items", 
+                                                 :action => "index" %> |
+          <%= link_to_unless_current "About Us",:controller => "site", 
+                                                 :action => "about" %> |
+          <%= link_to_unless_current "Testimonial",:controller => "site",
+                                            :action => "testimonial" %> |
+          <%= link_to_unless_current "Contact Us",:controller => "site", 
+                                                 :action => "contact" %>
+
+        </div>
+        <div style="text-align:right">
+            <!--div class="user_nav"-->
+                <% if current_user %>
+                    Logged in as <%= current_user.email %>
+                    <%= link_to "Log out", logout_path %> |
+                <% else %>
+                  <%= link_to "Sign up", signup_path %> |
+                  <%= link_to "Log in", login_path %> |
+                <% end %>
+            <!--/div-->
+
+            <%= link_to_unless_current "Cart",  :controller => "cart", 
+                                                 :action => "index" %> | 
+          
+            <% unless session[:login] %>
+            <%= link_to_unless_current "Admin", :controller => "user", 
+                                                   :action => "admin_login" %>
+          <% else %>
+            <%= link_to 'Categories', categories_path %> | 
+            <%= link_to_unless_current "Logout", :controller => "user", 
+                                                 :action => "logout" %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div id="content">
+      	<% if flash[:notice] -%>
+        	<p style="color: green"><%= flash[:notice] %></p>
+		<% end -%>
+        <%= yield %>
+      </div>
+      <div class="footer-container">
+          <div class="footer" id="footer">
+            <div class="f-columns">
+              <div class="grid_3">
+                <h3>Customer Services</h3>
+                <ul>
+                  <li><%= link_to_unless_current "About Us",:controller => "site", 
+                                                 :action => "about" %></li>
+                  <li><%= link_to_unless_current "Contact Us",:controller => "site", 
+                                                 :action => "contact" %></li>
+                  <li><%= link_to_unless_current "Terms & Conditions",:controller => "site",:action => "condition" %></li>
+                  <li><%= link_to_unless_current "Faq's",:controller => "site",
+                                                  :action => "faq" %></li>
+                  <li><%= link_to_unless_current "Testimonials",:controller => "site",
+                                                  :action => "testimonial" %></li> 
+                </ul>
+              </div>
+              <div class="grid_3 line">
+                <h3>popular brands</h3>
+                  <ul>
+                    <li><a title="Louis Vuitton" href="http://royalwatches.pk/mens-watches/louis-vuitton-watches-in-pakistan.html">Louis Vuitton</a></li>
+                    <li><a title="Breitling" href="http://royalwatches.pk/mens-watches/breitling.html">Breitling</a></li>
+                    <li><a title="Breitling" href="http://royalwatches.pk/mens-watches/tagheuer-1.html">Tag Heuer</a></li>
+                    <li><a title="Montblanc" href="http://royalwatches.pk/mens-watches/montblanc.html">Montblanc</a></li>
+                    <li><a title="Chopard" href="http://royalwatches.pk/mens-watches/chopard-watches-in-pakistan.html">Chopard</a></li>
+                    </ul>
+              </div>
+              <div class="grid_3 line">
+                <h3>Need Help?</h3>
+                  <ul>
+                    <li>Call us on:</li>
+                    <li>0321-4333815, 0800-78601</li>
+                    <li><%= (image_tag "linkeden-iconee.gif") %>Mon-Sat 10am - 6.00pm</li>
+                    <li><%= (image_tag "linkeden-icon.gif") %><a href="mailto:meer_online@yahoo.com">meer_online@yahoo.com</a></li>
+                  </ul>
+              </div>
+            <div class="grid_3 line">
+              <h3>Connect &amp; share</h3>
+              <div id="social-links"> <a href="https://www.facebook.com/royalwatches2" target="_blank"><%= (image_tag "facebook-icon.gif") %></a>
+              </div>
+            </div>
+            <div class="copyright">© Watches. All Rights Reserved.</div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</body>
+</html>

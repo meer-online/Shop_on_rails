@@ -1,0 +1,58 @@
+<!--% for item in @items %-->
+<div id="product">
+<div class="simple-search">
+<%= form_for items_path, :method => 'get', :remote => true do %>
+  <div class="search">
+    <%= text_field_tag :search, params[:search], :class => "search-field" %>
+    <%= submit_tag "Search", :name => nil, :class => "search-bt" %>
+  </div>
+<% end %>
+</div>
+
+<table class="catalog">
+
+<% @items.each do |item| %>
+  <tr>
+    <td>
+        <div class="image">
+            <%= link_to (image_tag item.photo.url(:thumbnail)), item %>
+           <!--%= link_to (image_tag item.image_url), item %-->
+        </div>
+    </td>
+    <td>
+        <div class="title">
+            <%= link_to item.title, item %>
+        </div>
+        <div class="description">
+          <%=h truncate(item.description, length: 400).html_safe %>
+          <%= link_to 'Read more', item %> 
+          <!--%=h item.description.html_safe %-->
+        </div>
+        <div class="category">
+            <%=h item.category_name %>
+        </div>
+        <div class="links">
+            <% if session[:login] == 1 %>
+               <%= link_to 'Edit', edit_item_path(item) %> |
+               <%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
+            <% else %>
+
+             <div class="link-to-other"><%= link_to "Add to Cart", { :controller => "cart", :action => :add, :id => item}, :method => 'get', :remote => true %></div>
+             
+             <!--div class="link-to-other"><%= link_to 'Add to Cart', line_items_path(:item_id => item) %></div-->
+
+
+
+              <!--Non Ajax Based -->
+              <!--div class="link-to-other"> <%= link_to "Add to Cart", :controller => "cart", :action => "add", :id => item %></div-->
+            <% end %>
+        </div>
+        <div class="price">
+            <%= number_to_currency(item.price, :unit => "&dollar;") %>
+        </div>
+    </td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= paginate @items, :remote => true %></div>
+</div>

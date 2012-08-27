@@ -1,0 +1,36 @@
+// Place all the styles related to the Cart controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.cart{
+	margin: auto;
+	.legend{
+		width: 22.8%;
+	}
+	.image{
+		a{
+			img{
+				width: 60px;
+				height: 60px;
+			}
+		}
+	}
+}
+
+
+ div.on-cart{
+	border-radius: 7px;
+
+	width:150px;
+	text-align:center;
+	margin-top:14px;
+ }
+
+.preview{
+	text-align: center;
+	font-weight: 700;
+}
+
+
