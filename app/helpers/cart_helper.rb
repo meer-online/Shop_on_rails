@@ -14,7 +14,7 @@ module CartHelper
           "item_number_#{id.to_i}" => item.id,
           "item_name_#{id.to_i}" => item.title,
           "amount_#{id.to_i}" => item.price,         
-          "quantity_#{id.to_i+1}" => quantity
+          "quantity_#{id.to_i}" => quantity
         })
      end
   
