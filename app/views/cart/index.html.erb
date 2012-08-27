@@ -45,7 +45,7 @@
 </table>
 
 <p>
-    <div class="link-to-other on-cart" ><%= link_to 'Proceed to Checkout', paypal_url(@cart, items_path) %></div></p>
+    <div class="link-to-other on-cart" ><%= link_to 'Proceed to Checkout', paypal_url(@cart, "http://meer-online.herokuapp.com/") %></div></p>
 
 <p>    <div class="link-to-other on-cart"><%= link_to 'Continue Shopping', :controller => :items %></div>
 </p>

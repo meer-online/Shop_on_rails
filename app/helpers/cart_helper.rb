@@ -2,8 +2,8 @@ module CartHelper
   def paypal_url(cart, return_url)
     values={
       :business => 'seller_1345723051_biz@gmail.com',
-      :cmd => '_cart',
-      #:upload => 1,
+      :cmd => '_cart', #'_xclick',
+      :upload => 1,
       :return => return_url
     }
     #cart = session[:cart] ||={}
@@ -11,10 +11,10 @@ module CartHelper
     cart.each  do |id, quantity |
       item = Item.find(id)
       values.merge!({    
-          "amount_#{id.to_i+1}" => item.price,
-          "item_name_#{id.to_i+1}" => item.title,
-          "item_number_#{id.to_i+1}" => item.id,
-          "quantity_#{id.to_i+1}" => item.category
+          "item_number_#{id.to_i}" => item.id,
+          "item_name_#{id.to_i}" => item.title,
+          "amount_#{id.to_i}" => item.price,         
+          "quantity_#{id.to_i+1}" => quantity
         })
      end
   
