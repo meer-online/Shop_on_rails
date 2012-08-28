@@ -21,7 +21,7 @@
     </td>
     <td>
         <div class="title">
-            <%= link_to item.title, item %>
+            <%= link_to item.title, item %><%= clippy(item.title,'#FFFFFF') %>
         </div>
         <div class="description">
           <%=h truncate(item.description, length: 400).html_safe %>
