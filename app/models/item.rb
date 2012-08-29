@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   attr_accessible :description, :image_url, :price, :title, :category_name, :category_id, :photo
-
+  scope :uncategorized, where(:category_id => nil) 
   # has_many :line_items
 
 
@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   # end
   
   belongs_to :category
-  has_attached_file :photo, :styles => { :small => "200x200>", :thumbnail => "120x120>", :image_preview_cart => "60x60>" },
+  has_attached_file :photo, :styles => { :small => "200x200>", :thumbnail => "120x120>", :image_preview_cart => "60x60>", :image_admin_preview => "50x50>" },
         :url => "/assets/items/:id/:style/:basename.:extension",
         :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
 

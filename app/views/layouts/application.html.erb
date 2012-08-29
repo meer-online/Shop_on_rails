@@ -43,21 +43,14 @@
                 <% end %>
             <!--/div-->
 
-            <%= link_to_unless_current "Cart",  :controller => "cart", 
-                                                 :action => "index" %> | 
-          
-            <% unless session[:login] %>
-            <%= link_to_unless_current "Admin", :controller => "user", 
-                                                   :action => "admin_login" %>
-          <% else %>
-            <%= link_to 'Categories', categories_path %> | 
-            <%= link_to_unless_current "Logout", :controller => "user", 
-                                                 :action => "logout" %>
-          <% end %>
+            <%= link_to_unless_current "Shopping Cart",  :controller => "cart", 
+                                                 :action => "index" %> 
         </div>
       </div>
       
       <div id="content">
+        <!--p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p-->
       	<% if flash[:notice] -%>
         	<p style="color: green"><%= flash[:notice] %></p>
 		<% end -%>

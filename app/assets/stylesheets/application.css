@@ -7,10 +7,19 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
+ *   rq tree .
  *= require_self
- *= require_tree .
+ *= require cart
+ *= require categories
+ *= require items
+ *= require line_items
+ *= require scaffolds
+ *= require sessions
+ *= require site
+ *= require user
+ *= require users
  */
+
 body { 
   margin: 0;
   padding: 0;
