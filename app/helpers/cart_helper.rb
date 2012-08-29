@@ -8,13 +8,15 @@ module CartHelper
     }
     #cart = session[:cart] ||={}
     #7.times { |t| logger.debug "***#{(@cart.inspect if t == 3)}****" }
+    items_count = 0
     cart.each  do |id, quantity |
+      items_count += 1
       item = Item.find(id)
       values.merge!({    
-          "item_number_#{id.to_i}" => item.id,
-          "item_name_#{id.to_i}" => item.title,
-          "amount_#{id.to_i}" => item.price,         
-          "quantity_#{id.to_i}" => quantity
+          "item_number_#{items_count}" => item.id,
+          "item_name_#{items_count}" => item.title,
+          "amount_#{items_count}" => item.price,         
+          "quantity_#{items_count}" => quantity
         })
      end
   
