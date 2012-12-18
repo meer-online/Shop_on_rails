@@ -12,6 +12,22 @@ class CartController < ApplicationController
     redirect_to :action => :index
   end
 
+  #  def create
+  #   @cart = Cart.new(params[:cart])
+  #   7.times { |i| logger.debug "***********#{ @cart.inspect if i == 4 }***********" }
+
+  #   # respond_to do |format|
+  #   #   if @item.save
+  #   #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
+  #   #     format.json { render json: @item, status: :created, location: @item }
+  #   #   else
+  #   #     format.html { render action: "new" }
+  #   #     format.json { render json: @item.errors, status: :unprocessable_entity }
+  #   #   end
+  #   # end
+  #   #redirect_to :action => :index
+  # end
+
   # def checkout
   #   values={
   #     :business => 'seller_1345723051_biz@gmail.com',

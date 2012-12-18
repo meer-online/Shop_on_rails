@@ -1,5 +1,7 @@
 ShopOnRails::Application.routes.draw do
 
+  resources :orders
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -39,8 +41,8 @@ ShopOnRails::Application.routes.draw do
 
   get "user/logout"
 
-  resources :categories, :cart, :site, :items
- 
+  resources :categories, :site, :items , :cart
+
   #match "/cart/:id" => "cart#index"
 
   # The priority is based upon order of creation:

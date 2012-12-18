@@ -1,0 +1,25 @@
+<!--%= title "Place Order" %-->
+<h2>Place Order</h2>
+
+<%= form_for @order do |f| %>
+  <!--%= f.error_messages %-->
+  <% if @order.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @order.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render "#{@order.current_step}_step", :f => f %>
+
+  <legend class="link-to-other"><%= f.submit "continue" unless !@order.last_step? %></legend> 
+
+  <legend class="link-to-other"><%= f.submit  "Previous Step", :name => "previous_button" unless @order.first_step? %></legend>
+
+<% end %>
+<br /><br /><br />
+<div class="link-to-other on-order"><%= link_to "Back to cart", cart_index_path %></div>

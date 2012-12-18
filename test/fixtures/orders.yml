@@ -1,0 +1,9 @@
+one:
+  shipping_name: MyString
+  shipping_address: MyText
+  billing_name: MyString
+
+two:
+  shipping_name: MyString
+  shipping_address: MyText
+  billing_name: MyString
